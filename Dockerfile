@@ -4,6 +4,10 @@ ENV HOME /
 WORKDIR ${HOME}
 COPY ./requirements.txt ./requirements.txt
 
+RUN apt-get update && \
+    apt-get install --no-install-recommends --no-install-suggetst -y \
+    supervisor ngninx apache2-utils
+
 RUN pip install --upgrade pip && \
     pip install -r requirements.txt
 
