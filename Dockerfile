@@ -1,19 +1,19 @@
 FROM python:3.8.6-buster
 
-ENV HOME /
-WORKDIR ${HOME}
 COPY ./requirements.txt ./requirements.txt
 
 RUN set -x && \
     apt-get update && \
     apt-get install --no-install-recommends --no-install-suggests -y \
-    supervisor nginx apache2-utils
+    supervisor nginx apache2-utils && \
+    apt-get remove --purge --auto-remove -y ca-certificates && rm -rf /var/lib/apt/lists/*
 
 RUN pip install --upgrade pip && \
     pip install -r requirements.txt
 
 RUN addgroup -gid 1000 www && \
     adduser -uid 1000 -H -D -s /bin/sh -G www www
+
 
 COPY nginx.conf.template /app/nginx.conf.template
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
