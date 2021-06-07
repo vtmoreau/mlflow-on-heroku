@@ -1,6 +1,6 @@
 {
     "name": "mlflow-heroku",
-    "description": "Run Mlflow on Heroku",
+    "description": "Mlflow Server on Heroku",
     "image": "heroku/python",
     "env": {
       "PYTHONPATH": {
