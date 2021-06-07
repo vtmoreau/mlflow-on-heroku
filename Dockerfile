@@ -2,7 +2,7 @@ FROM python:3.8.6-buster
 
 ENV HOME /
 WORKDIR ${HOME}
-COPY ./requirements ./requirements.txt
+COPY ./requirements.txt ./requirements.txt
 
 RUN pip install --upgrade pip && \
     pip install -r requirements.txt
