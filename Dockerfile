@@ -5,7 +5,7 @@ COPY ./requirements.txt ./requirements.txt
 RUN set -x && \
     apt-get update && \
     apt-get install --no-install-recommends --no-install-suggests -y \
-    supervisor nginx apache2-utils && \
+    supervisor nginx gettext-base  apache2-utils && \
     apt-get remove --purge --auto-remove -y ca-certificates && rm -rf /var/lib/apt/lists/*
 
 RUN pip install --upgrade pip && \
