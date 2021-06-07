@@ -28,8 +28,3 @@ RUN chmod +x /app/entrypoint.sh && \
 EXPOSE 6000
 
 CMD ["/bin/bash", "/app/entrypoint.sh"]
-
-# CMD mlflow server --backend-store-uri ${DATABASE_URL} \
-#     --default-artifact-root ./mlruns \
-#     --host 0.0.0.0 \
-#     --port ${PORT}
