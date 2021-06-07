@@ -4,7 +4,7 @@ ENV HOME /
 WORKDIR ${HOME}
 COPY ./requirements.txt ./requirements.txt
 
-RUN set -x \
+RUN set -x && \
     apt-get update && \
     apt-get install --no-install-recommends --no-install-suggests -y \
     supervisor nginx apache2-utils
