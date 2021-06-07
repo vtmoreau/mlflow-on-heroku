@@ -1,6 +1,6 @@
 FROM python:3.8.6-buster
 
-COPY ./requirements.txt ./requirements.txt
+COPY ./requirements.txt /requirements.txt
 
 RUN set -x && \
     apt-get update && \
@@ -14,12 +14,9 @@ RUN pip install --upgrade pip && \
 RUN addgroup -gid 1000 www && \
     adduser -uid 1000 -H -D -s /bin/sh -G www www
 
-
-COPY nginx.conf.template /app/nginx.conf.template
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-COPY ./entrypoint.sh /app/entrypoint.sh
-COPY ./webserver.sh /app/webserver.sh
-COPY ./mlflow.sh /app/mlflow.sh
+
+COPY ./app /app
 
 RUN chmod +x /app/entrypoint.sh && \
     chmod +x /app/webserver.sh && \
