@@ -1,14 +1,20 @@
 {
-    "name": "mlflow-heroku",
-    "description": "Mlflow Server on Heroku",
-    "image": "heroku/python",
-    "env": {
-      "PYTHONPATH": {
-        "description": "Path for python",
-        "value": "/"
-      }
-      },
-    "scripts": {
-      "postdeploy": "pip freeze list && pwd && ls"
+  "name": "mlflow-heroku",
+  "description": "Mlflow Server on Heroku with auth",
+  "stack": "container",
+  "env": {
+    "MLFLOW_TRACKING_PASSWORD": {
+      "description": "Password for mlflow web dashboard and HTTP API",
+      "value": "PASSWORD"
+    },
+    "MLFLOW_TRACKING_USERNAME": {
+      "description": "Username for mlflow web dashboard and HTTP API",
+      "value": "user"
     }
-  }
+  },
+  "addons": [
+    {
+      "plan": "heroku-postgresql"
+    }
+  ]
+}
