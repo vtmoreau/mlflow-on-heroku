@@ -5,5 +5,5 @@ run:
   web: Dockerfile
   worker:
     command:
-      - mlflow server --host 0.0.0.0
+      - mlflow server --backend-store-uri ${DATABASE_URL} --host 0.0.0.0 --port ${PORT}
     image: web

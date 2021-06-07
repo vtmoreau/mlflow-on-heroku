@@ -7,6 +7,6 @@ COPY . ${HOME}
 RUN pip install --upgrade pip && \
     pip install -r requirements.txt
 
-EXPOSE 5000
+EXPOSE $PORT
 
-CMD mlflow server --host 0.0.0.0
+CMD mlflow server --backend-store-uri ${DATABASE_URL} --host 0.0.0.0
