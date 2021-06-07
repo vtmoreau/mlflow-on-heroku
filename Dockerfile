@@ -21,6 +21,10 @@ COPY ./entrypoint.sh /app/entrypoint.sh
 COPY ./webserver.sh /app/webserver.sh
 COPY ./mlflow.sh /app/mlflow.sh
 
+RUN chmod +x /app/entrypoint.sh && \
+    chmod +x /app/webserver.sh && \
+    chmod +x /app/mlflow.sh
+
 EXPOSE 6000
 
 CMD ["/bin/bash", "/app/entrypoint.sh"]
