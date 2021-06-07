@@ -1,9 +1,3 @@
 build:
   docker:
     web: Dockerfile
-run:
-  web: Dockerfile
-  worker:
-    command:
-      - mlflow server --backend-store-uri ${DATABASE_URL} --host 0.0.0.0 --port ${PORT}
-    image: web

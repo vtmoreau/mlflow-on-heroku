@@ -9,4 +9,9 @@ RUN pip install --upgrade pip && \
 
 EXPOSE $PORT
 
-CMD mlflow server --backend-store-uri ${DATABASE_URL} --host 0.0.0.0
+ENV DATABASE_URL ${DATABASE_URL//postgres:/postgresql:} 
+
+CMD mlflow server --backend-store-uri ${DATABASE_URL} \
+    --default-artifact-root ./mlruns \
+    --host 0.0.0.0 \
+    --port ${PORT}
