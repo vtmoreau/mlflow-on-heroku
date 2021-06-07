@@ -1,4 +1,3 @@
 usage/
 mlruns/
-/*.json
 .dev
