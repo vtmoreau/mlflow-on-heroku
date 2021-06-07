@@ -1,1 +1,1 @@
-web: mlflow ui -p 5000 --host 0.0.0.0
+web: mlflow ui --host 0.0.0.0 --port 5000
